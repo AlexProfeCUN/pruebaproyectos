@@ -1,0 +1,185 @@
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Inicio de sesión</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+
+        body {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background: linear-gradient(135deg, #141e30, #243b55);
+        }
+
+        .login-container {
+            width: 350px;
+            padding: 35px;
+            background: #ffffff;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+        }
+
+        h2 {
+            text-align: center;
+            margin-bottom: 10px;
+            color: #243b55;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #777;
+            margin-bottom: 25px;
+            font-size: 14px;
+        }
+
+        .input-group {
+            margin-bottom: 20px;
+        }
+
+        label {
+            display: block;
+            margin-bottom: 7px;
+            color: #333;
+            font-size: 14px;
+        }
+
+        input {
+            width: 100%;
+            padding: 12px;
+            border: 1px solid #ccc;
+            border-radius: 7px;
+            outline: none;
+            font-size: 14px;
+        }
+
+        input:focus {
+            border-color: #243b55;
+            box-shadow: 0 0 4px #243b55;
+        }
+
+        .forgot {
+            display: block;
+            text-align: right;
+            margin-top: -8px;
+            margin-bottom: 20px;
+            font-size: 13px;
+            color: #243b55;
+            text-decoration: none;
+        }
+
+        button {
+            width: 100%;
+            padding: 12px;
+            background: #243b55;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            font-size: 16px;
+            cursor: pointer;
+            transition: 0.3s;
+        }
+
+        button:hover {
+            background: #141e30;
+        }
+
+        .register {
+            text-align: center;
+            margin-top: 22px;
+            font-size: 14px;
+            color: #666;
+        }
+
+        .register a {
+            color: #243b55;
+            font-weight: bold;
+            text-decoration: none;
+        }
+
+        #mensaje {
+            margin-top: 15px;
+            text-align: center;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div class="login-container">
+        <h2>¡Bienvenido!</h2>
+        <p class="subtitle">Inicia sesión en tu cuenta</p>
+
+        <form id="loginForm">
+            <div class="input-group">
+                <label for="correo">Correo electrónico</label>
+                <input
+                    type="email"
+                    id="correo"
+                    placeholder="usuario@ejemplo.com"
+                    required
+                >
+            </div>
+
+            <div class="input-group">
+                <label for="contrasena">Contraseña</label>
+                <input
+                    type="password"
+                    id="contrasena"
+                    placeholder="Ingresa tu contraseña"
+                    required
+                >
+            </div>
+
+            <a href="#" class="forgot"
+               id="recuperar">¿Olvidaste tu contraseña?</a>
+
+            <button type="submit">Iniciar sesión</button>
+
+            <p id="mensaje" role="status"></p>
+        </form>
+
+        <p class="register">
+            ¿No tienes una cuenta?
+            <a href="#" id="registrarse">Regístrate</a>
+        </p>
+    </div>
+
+    <script>
+        const formulario = document.getElementById("loginForm");
+        const mensaje = document.getElementById("mensaje");
+
+        formulario.addEventListener("submit", function(event) {
+            event.preventDefault();
+
+            mensaje.style.color = "#b45309";
+            mensaje.textContent =
+                "Conecta este formulario con un servidor para validar tu cuenta.";
+        });
+
+        document.getElementById("recuperar")
+            .addEventListener("click", function(event) {
+                event.preventDefault();
+                alert("Aquí puedes agregar la recuperación de contraseña.");
+            });
+
+        document.getElementById("registrarse")
+            .addEventListener("click", function(event) {
+                event.preventDefault();
+                alert("Aquí puedes enlazar tu página de registro.");
+            });
+    </script>
+
+</body>
+</html>
